@@ -1,0 +1,50 @@
+<heder class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav class="nav navbar-nav navbar-left"><span>Bookers</span></nav>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to " Home", root_path(@user), class: "glyphicon glyphicon-home" %>
+        </li>
+        <li>
+          <%= link_to " About", about_path(@user), class: "glyphicon glyphicon-link" %>
+        </li>
+        <li>
+          <%= link_to " sign up", new_user_registration_path(@user), class: "glyphicon glyphicon-edit" %>
+        </li>
+        <li>
+          <%= link_to " login", new_user_session_path(@user), class: "glyphicon glyphicon-log-in" %>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</heder>
+
+<div class="container">
+<h2>Forgot your password?</h2>
+
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Send me reset password instructions", class: "btn btn-danger" %>
+  </div>
+<%= render "devise/shared/links" %>
+</div>
+<% end %>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-3 col-xs-offset-9">
+        <p>CopyRight Infratop.inc</p>
+      </div>
+    </div>
+  </div>
+</footer>
