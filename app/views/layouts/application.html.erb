@@ -26,7 +26,7 @@
           <%= link_to " Books", posts_path, class: "glyphicon glyphicon-book" %>
         </li>
         <li>
-          <%= link_to " logout", destroy_user_session_path(@user.id), method: :delete, class: "glyphicon glyphicon-user" %>
+          <%= link_to " logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-user" %>
         </li>
       </ul>
     </nav>
@@ -39,16 +39,16 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <%= link_to " Home", root_path(@user), class: "glyphicon glyphicon-home" %>
+          <%= link_to " Home", root_path, class: "glyphicon glyphicon-home" %>
         </li>
         <li>
-          <%= link_to " About", about_path(@user), class: "glyphicon glyphicon-link" %>
+          <%= link_to " About", about_path, class: "glyphicon glyphicon-link" %>
         </li>
         <li>
-          <%= link_to " sign up", new_user_registration_path(@user), class: "glyphicon glyphicon-edit" %>
+          <%= link_to " sign up", new_user_registration_path, class: "glyphicon glyphicon-edit" %>
         </li>
         <li>
-          <%= link_to " login", new_user_session_path(@user), class: "glyphicon glyphicon-log-in" %>
+          <%= link_to " login", new_user_session_path, class: "glyphicon glyphicon-log-in" %>
         </li>
       </ul>
     </nav>

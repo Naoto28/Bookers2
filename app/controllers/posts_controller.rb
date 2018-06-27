@@ -10,12 +10,14 @@ before_action :authenticate_user!, only: [:index, :show, :edit, :update, :destro
   def create
       @post = Post.new(post_params)
       @post.user_id = current_user.id
-      @post.save
-      redirect_to post_path(@post)
+      if @post.save
+       redirect_to post_path(@post)
+      end
   end
 
   def show
-      @user = User.find(params[:id])
+      # @user = User.find(params[:id])
+      @post = Post.new
       @post = Post.find(params[:id])
       @user = @post.user
   end
@@ -25,6 +27,16 @@ before_action :authenticate_user!, only: [:index, :show, :edit, :update, :destro
 
   def edit
       @post = Post.find(params[:id])
+      if Post.exists?(id: params[:id])
+         if current_user.id.to_i == params[:id].to_i
+             @user = User.find(params[:id])
+         else
+             redirect_to user_path(params[:id])
+         end
+
+      else
+         redirect_to user_path(current_user)
+      end
   end
 
   def update
