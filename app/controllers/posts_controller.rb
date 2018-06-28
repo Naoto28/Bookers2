@@ -16,8 +16,7 @@ before_action :authenticate_user!, only: [:index, :show, :edit, :update, :destro
   end
 
   def show
-      # @user = User.find(params[:id])
-      @post = Post.new
+      @postf = Post.new
       @post = Post.find(params[:id])
       @user = @post.user
   end
@@ -27,13 +26,7 @@ before_action :authenticate_user!, only: [:index, :show, :edit, :update, :destro
 
   def edit
       @post = Post.find(params[:id])
-      if Post.exists?(id: params[:id])
-         if current_user.id.to_i == params[:id].to_i
-             @user = User.find(params[:id])
-         else
-             redirect_to user_path(params[:id])
-         end
-
+      if @post.user_id == current_user.id
       else
          redirect_to user_path(current_user)
       end

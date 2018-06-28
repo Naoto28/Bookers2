@@ -16,7 +16,7 @@ before_action :authenticate_user!, only:[:index, :show, :edit, :update, :destroy
 
   def show
       @user = User.find(params[:id])
-      @post = Post.new
+      @postf = Post.new
 
   end
 

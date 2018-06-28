@@ -12,11 +12,9 @@
 
     <h2>User info</h2>
 
-    <% if @user.image_id == nil %>
-    <%= image_tag 'no_image.jpg' %>
-    <% else %>
-    <%= attachment_image_tag @user, :image, :fill, 100, 100 %>
-    <% end %>
+
+    <%= attachment_image_tag @user, :image, :fill, 100, 100, fallback:'no_image.jpg', size:"100x100" %>
+
 
     <table class="table">
       <tbody>
@@ -37,7 +35,7 @@
 
     <h2>New book</h2>
 
-    <%= form_for(@post) do |f| %>
+    <%= form_for(@postf) do |f| %>
 
     <div class="field row">
       <%= f.label :Title %>
@@ -76,11 +74,9 @@
           <tr>
             <td>
             <%= link_to user_path(post.user) do %>
-            <% if @user.image_id == nil %>
-            <%= image_tag 'no_image.jpg', size: '40x40' %>
-            <% else %>
-            <%= attachment_image_tag @user, :image, :fill, 40, 40 %>
-            <% end %>
+
+            <%= attachment_image_tag @user, :image, :fill, 40, 40, fallback:'no_image.jpg', size:"40x40" %>
+
             <% end %>
             </td>
             <td>

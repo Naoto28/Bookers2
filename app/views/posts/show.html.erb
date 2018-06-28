@@ -31,16 +31,16 @@
 
     <h2>New book</h2>
 
-    <%= form_for(@post) do |f| %>
+    <%= form_for(@postf) do |f| %>
 
     <div class="field row">
       <%= f.label :Title %>
-      <%= f.text_field :title, class: "col-xs-12" %>
+      <%= f.text_field :title, class: "form-control col-xs-12" %>
     </div>
 
     <div class="field row">
       <%= f.label :Opinion %>
-      <%= f.text_area :opinion, class: "col-xs-12" %>
+      <%= f.text_area :opinion, class: "form-control col-xs-1" %>
     </div>
 
     <div class="action row" >
